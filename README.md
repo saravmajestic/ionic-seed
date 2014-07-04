@@ -1,7 +1,7 @@
 Ionic Seed project starter kit
 ====================================
 
-Tool: [Ionic starter kit tool] [1]:
+Tool: [Ionic starter kit tool] [1]
 
 If you see any issues, please log it [here][2].
 
