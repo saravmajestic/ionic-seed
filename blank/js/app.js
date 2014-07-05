@@ -61,7 +61,7 @@ var app = angular.module('ionicbuilder', ['ionic', 'ionicbuilder.services', 'ion
         return query.length ? query.substr(0, query.length - 1) : query;
       };
 
-    $rootScope.triggerAjax = function(url, query, isPost, cache, fullUrl) {
+    $rootScope.triggerAjax = function(url, query, isPost, cache) {
     	var deferred = $q.defer(),
         start = new Date().getTime();
     	
@@ -78,8 +78,7 @@ var app = angular.module('ionicbuilder', ['ionic', 'ionicbuilder.services', 'ion
     	var successMethodName = "successMethod" + random;
     	$window[successMethodName] = function(resp){
     		Logger.log("Time taken for " + url + ": " + ((new Date().getTime()) - start));
-    		//fullUrl check for facebook calls
-			if(resp.isSuccess || fullUrl){
+			if(resp.isSuccess){
     			deferred.resolve(resp);
 			}else{
 				failedMethod(resp);
@@ -114,10 +113,10 @@ var app = angular.module('ionicbuilder', ['ionic', 'ionicbuilder.services', 'ion
 			}).success($window[successMethodName]).error(failedMethod);
         }else{
         	var httpType = "GET";
-        	var finalUrl = fullUrl ? fullUrl : (config.ctx + url);
-        	if($rootScope.isDesktop || fullUrl){
+        	var finalUrl = (config.ctx + url);
+        	if($rootScope.isDesktop){
         		query["callback"] = successMethodName;
-        		httpType = "jsonp"
+        		httpType = "jsonp";
         	};
         	 
         	$http({
@@ -129,7 +128,7 @@ var app = angular.module('ionicbuilder', ['ionic', 'ionicbuilder.services', 'ion
         }
 		
         return deferred.promise;
- 	 }
+ 	 };
 }])
 
 .config(function($stateProvider, $urlRouterProvider) {

@@ -1,0 +1,17 @@
+{
+    "development": {
+        "driver": "mongoose",
+        "uri": "mongodb://localhost/sample_mongo_db",
+        "debug": true
+    },
+	"staging": {
+        "driver": "mongoose",
+        "uri": "mongodb://localhost/sample_mongo_db",
+        "debug": true
+    },
+    "production": {
+        "driver": "mongoose",
+		"uri": "mongodb://localhost/sample_mongo_db",
+        "debug": false
+    }
+}

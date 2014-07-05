@@ -1,5 +1,5 @@
-controllers.controller("IndexCtrl", ['$rootScope', "$scope", "$stateParams", "$q", "$location", "$window", "Logger", '$ionicLoading', "$ionicSideMenuDelegate", '$ionicScrollDelegate', '$timeout', 'config', '$ionicModal',
-    function($rootScope, $scope, $stateParams, $q, $location, $window, Logger, $ionicLoading, $ionicSideMenuDelegate, $ionicScrollDelegate, $timeout, config, $ionicModal) {
+controllers.controller("IndexCtrl", ['$rootScope', "$scope", "$stateParams", "$q", "$location", "$window", "Logger", '$ionicLoading', "$ionicSideMenuDelegate", '$ionicScrollDelegate', '$timeout', 'config', '$ionicModal','indexService',
+    function($rootScope, $scope, $stateParams, $q, $location, $window, Logger, $ionicLoading, $ionicSideMenuDelegate, $ionicScrollDelegate, $timeout, config, $ionicModal, indexService) {
 	
 	$scope.toggleLeft = function(event) {
 		event.preventDefault();
@@ -18,6 +18,13 @@ controllers.controller("IndexCtrl", ['$rootScope', "$scope", "$stateParams", "$q
 	    	$ionicScrollDelegate.scrollTop(false);
 		},1000);
 	    $location.url('/'+config.appName+'/' + page);
+	};
+	
+	$scope.data = {};
+	$scope.getData = function(){
+		indexService.getDataFromServer().then(function(resp){
+			$scope.data = resp;
+		});
 	};
 	
 	}

@@ -1,0 +1,29 @@
+{
+  "name": "restaurants",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "1.0.2",
+    "express": "4.4.3",
+    "connect" : "3.0.0-rc.2",
+    "connect-mongo": "0.4.1",
+    "connect-assets": "3.0.0-beta2",
+	"cookie-parser": "1.0.1",
+    "consolidate" : "0.10.0",
+    "dustjs-linkedin" : "2.4.0",
+	"dustjs-helpers" : "1.2.0",
+    "connect-mongodb" : "",
+    "morgan": "1.0.0",
+    "method-override": "1.0.0",
+    "mongoose" : "3.8.8",
+    "serve-favicon" : "2.0.1",
+    "should" : "1.2.1",
+    "socket.io" : "0.8.7",
+    "validator" : "0.4.22",
+    "vows" : "",
+    "winston" : "0.7.2"
+  }
+}
