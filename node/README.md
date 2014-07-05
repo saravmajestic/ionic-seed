@@ -1,6 +1,6 @@
 
 
-# restaurants
+# Ionic Seed node project
 
 
 
