@@ -90,7 +90,7 @@ var app = angular.module('ionicbuilder', ['ionic', 'ionicbuilder.services', 'ion
         		$location.path('/signout');
 			   }else{
 		        	/*$ionicPopup.alert({
-			            title: 'LocalCircles',
+			            title: 'ionicbuilder',
 			            content: (err.errMsg || config.applicationErrorMsg)
 			          }).then(function() {
 			        	  
@@ -98,7 +98,15 @@ var app = angular.module('ionicbuilder', ['ionic', 'ionicbuilder.services', 'ion
 			   }
         	deferred.reject(err);
         };
-        
+        if(config.ctx === "http://yourserver.com/"){
+        	$ionicPopup.alert({
+	            title: 'Your app!!!',
+	            content: ("Please configure your server url in config.js")
+	          }).then(function() {
+	        	  deferred.resolve({"msg" : "Please configure your server url in config.js"});
+	          });
+        	return deferred.promise;
+        }
         if(isPost){
 			$http({
 				method : 'POST',
